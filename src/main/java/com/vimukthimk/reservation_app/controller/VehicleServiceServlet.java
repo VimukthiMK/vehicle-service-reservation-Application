@@ -17,9 +17,11 @@ import com.vimukthimk.reservation_app.model.VehicleService;
 import com.vimukthimk.reservation_app.dao.VehicleServiceDao;
 import org.apache.commons.text.StringEscapeUtils;
 
-
+/**
+ * Servlet implementation class VehicleServiceServlet
+ */
 @WebServlet("/")
-public class VehicleServiceServlet extends HttpServlet {
+ class VehicleServiceServletpublic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        private VehicleServiceDao vehicleServiceDao;
 
@@ -74,7 +76,7 @@ public class VehicleServiceServlet extends HttpServlet {
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		RequestDispatcher dispatcher = request.getRequestDispatcher("new-reservation.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("vehicle-service-form.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -141,4 +143,3 @@ public class VehicleServiceServlet extends HttpServlet {
 	
 
 }
-
