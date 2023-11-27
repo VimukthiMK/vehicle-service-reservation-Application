@@ -21,7 +21,7 @@ import org.apache.commons.text.StringEscapeUtils;
  * Servlet implementation class VehicleServiceServlet
  */
 @WebServlet("/")
- class VehicleServiceServletpublic extends HttpServlet {
+public class VehicleServiceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        private VehicleServiceDao vehicleServiceDao;
 
@@ -48,23 +48,15 @@ import org.apache.commons.text.StringEscapeUtils;
 
 		
 		try {
-			switch (action) {
-			case "/new":
-				showNewForm(request, response);
-				break;
-				
-			case "/insert":
-				insertVehicleService(request, response);
-				break;
-				
-			case "/delete":
-				deleteVehicleService(request, response);
-				break;
-	
-			default:
-				String email = request.getParameter("email"); // retrieving the user email fom the home page.
-				listVehicleService(request, response,email);
-				break;
+			if ("/new".equals(action)) {
+				 showNewForm(request, response);
+			} else if ("/insert".equals(action)) {
+				 insertVehicleService(request, response);
+			} else if ("/delete".equals(action)) {
+				 deleteVehicleService(request, response);
+			} else {
+				 String email = request.getParameter("email");
+			    listVehicleService(request, response, email);
 			}
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
@@ -140,6 +132,11 @@ import org.apache.commons.text.StringEscapeUtils;
 		
 	}
 
-	
-
 }
+
+
+
+
+
+
+
