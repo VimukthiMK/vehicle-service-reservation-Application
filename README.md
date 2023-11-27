@@ -25,7 +25,8 @@ Follow these steps to set up and run the Vehicle Service Reservation Application
     <li>Import Project in Eclipse IDE:</li>
       <pre>Open Eclipse IDE and import the project.</pre>
     <li>Configure Database:</li>
-    <pre><code>	private String jdbcURL = "jdbc:mysql://your_database_host:your_database_port/your_database_name?useSSL=false";
+    <pre><code>	
+    private String jdbcURL = "jdbc:mysql://your_database_host:your_database_port/your_database_name?useSSL=false";
     private String jdbcUsername = "your_database_username";
     private String jdbcPassword = "your_database_password";
     private String jdbcDriver = "com.mysql.cj.jdbc.Driver"; </code></pre>
