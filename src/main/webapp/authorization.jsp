@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
-
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.io.BufferedReader" %>
 <%@ page import="java.io.InputStreamReader" %>
 <%@ page import="java.net.HttpURLConnection" %>
@@ -13,17 +11,17 @@
     String code = request.getParameter("code");
     String sessionState = request.getParameter("session_state");
     
-    // Set session attribute
+    // Set it as a session attribute
     session.setAttribute("sessionState", sessionState); 
     
-    // Define URL
-    String url = "https://api.asgardeo.io/t/vimukthimk/oauth2/token";
-    String client_Id = "emOCYtJaIODjuLwtf4W4KcOE9Lsa";
-    String client_secret = "QeTfa3wnbi_ZXQTZLOhsY_vPutMIXNyOfRyCba5iQaMa";
+ // Define URL
+    String url = "https://api.asgardeo.io/t/vmks/oauth2/token";
+    String client_Id = "p1uRTT4hafO2douQKEMngT8gJoIa";
+    String client_secret = "pg3m_nENaH9NmaKmpNjoawWUtKbw88prrMgUStFdmfwa";
     String redirect_uri = "http://localhost:8084/vehicle-service-res-application/authorization.jsp";
     
 
-    // Define request body
+    // Define the request body parameters
     String postData = "code=" + URLEncoder.encode(code, "UTF-8");
    
     postData += "&grant_type=authorization_code";
@@ -81,6 +79,25 @@
             response.sendRedirect("home.jsp");
         }
     } else {
-        // Handle errors here
-        response.sendRedirect("index.jsp");
+    	// Handle errors here
+        String errorMessage = "Login failed! Please check your credentials and try again.";
+        // Log the error
+        System.err.println("Token Exchange Error: " + responseCode);
+
+        // Redirect to the index.jsp page with an error message parameter
+        response.sendRedirect("index.jsp?error=" + URLEncoder.encode(errorMessage, "UTF-8"));
     }
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+  
+</body>
+</html>
+    
+
+
+ 

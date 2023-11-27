@@ -18,15 +18,22 @@
 		
 		<div class="button_container">
 	 			<button id="btn-login" class="btn-login"
-    onclick="window.location.href='https://api.asgardeo.io/t/vimukthimk/oauth2/authorize'
+    onclick="window.location.href='https://api.asgardeo.io/t/vmks/oauth2/authorize'
         + '?response_type=code'
-        + '&client_id=emOCYtJaIODjuLwtf4W4KcOE9Lsa'
+        + '&client_id=p1uRTT4hafO2douQKEMngT8gJoIa'
         + '&scope=openid%20email%20phone%20profile'
         + '&redirect_uri=http%3A%2F%2Flocalhost%3A8084%2Fvehicle-service-res-application%2Fauthorization.jsp'">
     <span class="btn-text">Login</span>
     <div class="fill-container"></div>
 </button>
-		</div>		
+		</div>	
+		<%-- Display error message if present --%>
+        <% String errorMessage = request.getParameter("error");
+           if (errorMessage != null && !errorMessage.isEmpty()) { %>
+            <div class="error-message">
+                <%= errorMessage %>
+            </div>
+        <% } %>	
 </div>
 </body>
 </html>
