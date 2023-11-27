@@ -74,7 +74,7 @@ public class VehicleServiceServlet extends HttpServlet {
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		RequestDispatcher dispatcher = request.getRequestDispatcher("vehicle-service-form.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("new-reservation.jsp");
 		dispatcher.forward(request, response);
 		
 	}
