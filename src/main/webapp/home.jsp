@@ -140,7 +140,7 @@
 			
 			<div class="nav-el" id="nav-el">
 				<a href="<%=request.getContextPath()%>/new"
-					class="nav-link">New Reservation</a>
+					class="new-reservation-btn">New Reservation</a>
 			</div>
 			<div class="nav-el" id="nav-el">
 				<form id="logout-form" action="https://api.asgardeo.io/t/vmks/oidc/logout" method="POST">
