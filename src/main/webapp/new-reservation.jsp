@@ -27,9 +27,8 @@ String userEmail = (String) session.getAttribute("userEmail");
 			</div>
 			
 			<div class="nav-el" id="nav-el">
-				<ul class="navbar-nav">
-				<li><a href="home.jsp" class="nav-link">Back</a></li>
-			</ul>
+				
+			<a href="home.jsp" class="nav-link">Back</a>
 			</div>
 			
 		</nav>

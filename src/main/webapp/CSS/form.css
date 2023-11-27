@@ -145,3 +145,22 @@ select.form-control {
 textarea.form-control {
     resize: vertical;
 }
+
+.nav-link {
+    background:none;
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+    border-radius: 13px;
+    text-shadow: none;
+    padding: 10px 30px;
+    text-decoration: none; /* Remove default underline for anchor tags */
+    display: inline-block; /* Ensure inline-block display to apply padding */
+}
+
+.nav-link:hover {
+    background: rgb(128, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 13px;
+    text-shadow: none;
+}
