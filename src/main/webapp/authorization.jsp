@@ -16,8 +16,8 @@
     
  // Define URL
     String url = "https://api.asgardeo.io/t/vmks/oauth2/token";
-    String client_Id = "p1uRTT4hafO2douQKEMngT8gJoIa";
-    String client_secret = "pg3m_nENaH9NmaKmpNjoawWUtKbw88prrMgUStFdmfwa";
+    String client_Id = "rMOuvvbCCKtvi5HLHqMQuC67tPUa";
+    String client_secret = "F7e4wEN_Zdz4v8vWRuDVm_rtDD8T9z936QSfIY5f1xEa";
     String redirect_uri = "http://localhost:8084/vehicle-service-res-application/authorization.jsp";
     
 

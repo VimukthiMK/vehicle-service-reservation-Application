@@ -11,9 +11,14 @@
 <%@ page import="org.json.JSONObject" %>
 <%@ page import="java.sql.*, java.util.Date" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.ArrayList" %>	
 
 <%
+			//Implement logout
+		String introUrl = "https://api.asgardeo.io/t/vmks/oauth2/introspect";
+		String post_logout_redirect_uri = "http://localhost:8084/vehicle-service-res-application/index.jsp"; 
+		String client_id = "rMOuvvbCCKtvi5HLHqMQuC67tPUa";
+
         
         String access_token = (String) request.getSession().getAttribute("access_token");
         String id_token = (String) request.getSession().getAttribute("id_token");
@@ -59,43 +64,41 @@
 
                 // Parse the JSON response
                 JSONObject jsonResponse = new JSONObject(responseStringBuilder.toString());
-					//out.println(jsonResponse);
+					
+                //out.println(jsonResponse);
                 // Retrieve user information
-                String given_name = jsonResponse.getString("given_name");
-                //String family_name = jsonResponse.getString("family_name");
-                String country = jsonResponse.getString("country");
-                String phone_number = jsonResponse.getString("phone_number");
-                String email = jsonResponse.getString("email");
+                String given_name = jsonResponse.optString("given_name", "");
+    			String country = jsonResponse.optString("country", "");
+    			String phone_number = jsonResponse.optString("phone_number", "");
+    			String email = jsonResponse.optString("email", "");
 
              // Store the email in a session attribute
                 session.setAttribute("userEmail", email);
-             
-             
-             
-             // Implement logout
-                String introUrl = "https://api.asgardeo.io/t/vmks/oauth2/introspect";
-        		String post_logout_redirect_uri = "http://localhost:8084/vehicle-service-res-application/index.jsp"; // changed
-        		String client_id = "GjPSNuCiJ0YkoPHq3LE0YixheXEa";
-             
+        
              	
               
                %>
 			 <script>
 			 document.addEventListener("DOMContentLoaded", function() {
-				    
-				  	
-				  	var first_name = '<%=given_name%>';
-				  	var coun_try = '<%=country %>';
-				    var phone_num = '<%=phone_number%>';
-				    var e_mail = '<%=email%>';
-		
-				  
-				    // Use JavaScript variables to update HTML elements
-				    document.getElementById("fName").textContent =  first_name;
-				    document.getElementById("country").textContent =  coun_try;
-				    document.getElementById("phone_no").textContent =  phone_num;
-				    document.getElementById("email").textContent =  e_mail;
-				});
+		            var first_name = '<%=given_name%>';
+		            var coun_try = '<%=country %>';
+		            var phone_num = '<%=phone_number%>';
+		            var e_mail = '<%=email%>';
+
+		            // Use JavaScript variables to update HTML elements
+		            document.getElementById("fName").textContent = first_name;
+		            document.getElementById("country").textContent = coun_try;
+		            document.getElementById("phone_no").textContent = phone_num;
+		            document.getElementById("email").textContent = e_mail;
+		            console.log('JavaScript executed successfully');
+		        });
+			// Display values in an alert
+		        alert('First Name: ' + first_name +
+		              '\nCountry: ' + coun_try +
+		              '\nPhone Number: ' + phone_num +
+		              '\nEmail: ' + e_mail);
+
+		        console.log('JavaScript executed successfully');
 			</script>
           <%       
             } else {
@@ -121,7 +124,6 @@
 
 <html lang="en">
 <head>
-	<meta charset="ISO-8859-1">
 	<title> Vehicle Service Reservation</title>
 	<link href="CSS/home.css" rel="stylesheet" type="text/css">
 </head>
@@ -137,14 +139,16 @@
 			</div>
 			
 			<div class="nav-el" id="nav-el">
-				<button id="btn-new_res" class="btn-new_res" >
-				<span class="btn-text">New reservation</span>
-				</button>
+				<a href="<%=request.getContextPath()%>/new"
+					class="nav-link">New Reservation</a>
 			</div>
 			<div class="nav-el" id="nav-el">
-				<button id="btn-logout" class="btn-logout" >
-				<span class="btn-text" onClick="index.jsp">Logout</span>
-				</button>
+				<form id="logout-form" action="https://api.asgardeo.io/t/vmks/oidc/logout" method="POST">
+				    <input type="hidden" id="client-id" name="client_id" value="<%= client_id %>">
+				    <input type="hidden" id="post-logout-redirect-uri" name="post_logout_redirect_uri" value="<%= post_logout_redirect_uri %>">
+				    <input type="hidden" id="state" name="state" value="<%= sessionState %>">
+				    <button id="logout-btn" type="submit">Logout</button>
+				</form>
 			</div>
 			
 		</nav>
@@ -179,7 +183,13 @@
 <h3 class="text-center">Your Vehicle Service Reservations</h3>
 <hr>
 <div class="container text-left">
-    <a href="#" class="btn btn-success">View My Reservations</a>
+				<%
+				// Get user email from the session
+    			String useremail = (String) session.getAttribute("userEmail"); 
+				%>
+	
+	
+    <a href="<%=request.getContextPath()%>/list?email=<%=useremail%>" class="btn btn-success">View My Reservations</a>
 </div>
 <br>
 <br>
@@ -197,6 +207,7 @@
         </tr>
     </thead>
     <tbody>
+    	
         
     </tbody>
 </table>
