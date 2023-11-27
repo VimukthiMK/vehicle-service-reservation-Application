@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 20px;
+}
+
+.navbar {
+	margin-top: 20px;
+    background-color: rgb(128, 128, 255);
+    height: 60px; /* Green background color */
+}
+
+.navbar-header {
+    font-size: 1.25rem; /* Adjust font size as needed */
+}
+
+
+
+.btn-outline-light {
+    color: #28a745; /* Green color for the button text */
+    border-color: #28a745; /* Green color for the button border */
+}
+
+.btn-outline-light:hover {
+    background-color: #28a745; 
+    color: white; 
+}
+
+.nav-hd{
+	max-width: 30%;
+	float: left;
+	padding-top: 5px;
+}
+.nav-el{
+	float: right;
+	max-width: 30%;
+	padding: 10px 30px;
+}
+
+#logout-btn{
+	background: rgb(255, 0, 0);
+    color: #fff;
+    border: none;
+    border-radius: 13px;
+    text-shadow: none;
+    padding: 10px 30px;
+}
+
+#logout-btn:hover{
+	 background: rgb(128, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 13px;
+    text-shadow: none;
+}
+
+.btn-new_res{
+	background:white;
+    color: rgb(0, 0, 0);
+    border: 1px solid blue;
+    border-radius: 13px;
+    text-shadow: none;
+    padding: 10px 30px;
+}
+
+.btn-new_res:hover{
+	 background: rgb(128, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 13px;
+    text-shadow: none;
+}
+
+.navbar-head{
+	 font-size: 30px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding-left: 30px;
+}@charset "UTF-8";
