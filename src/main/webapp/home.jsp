@@ -68,7 +68,8 @@
                 //out.println(jsonResponse);
                 // Retrieve user information
                 String given_name = jsonResponse.optString("given_name", "");
-    			String country = jsonResponse.optString("country", "");
+                String family_name = jsonResponse.optString("family_name", "");
+                String birthdate = jsonResponse.optString("birthdate", "");
     			String phone_number = jsonResponse.optString("phone_number", "");
     			String email = jsonResponse.optString("email", "");
 
@@ -81,24 +82,20 @@
 			 <script>
 			 document.addEventListener("DOMContentLoaded", function() {
 		            var first_name = '<%=given_name%>';
-		            var coun_try = '<%=country %>';
+		            var last_name = '<%=family_name%>';
+		            var birthday = '<%=birthdate%>';
 		            var phone_num = '<%=phone_number%>';
 		            var e_mail = '<%=email%>';
 
 		            // Use JavaScript variables to update HTML elements
 		            document.getElementById("fName").textContent = first_name;
-		            document.getElementById("country").textContent = coun_try;
+		            document.getElementById("lName").textContent = last_name;
+		            document.getElementById("bDay").textContent = birthday;
 		            document.getElementById("phone_no").textContent = phone_num;
 		            document.getElementById("email").textContent = e_mail;
 		            console.log('JavaScript executed successfully');
 		        });
-			// Display values in an alert
-		        alert('First Name: ' + first_name +
-		              '\nCountry: ' + coun_try +
-		              '\nPhone Number: ' + phone_num +
-		              '\nEmail: ' + e_mail);
-
-		        console.log('JavaScript executed successfully');
+		
 			</script>
           <%       
             } else {
@@ -139,7 +136,7 @@
 			</div>
 			
 			<div class="nav-el" id="nav-el">
-				<a href="<%=request.getContextPath()%>/new"
+				<a href="<%=request.getContextPath()%>/new-reservation.jsp"
 					class="new-reservation-btn">New Reservation</a>
 			</div>
 			<div class="nav-el" id="nav-el">
@@ -165,14 +162,22 @@
             </div>
             <div class="card-body">
                 <dl class="row">
+                
+                    
+                    <dt class="col">Last Name:</dt>
+                    <dd class="col" id="lName"></dd>
+                    
+                    <dt class="col">Birthday:</dt>
+                    <dd class="col" id="bDay"></dd>
+                
+                	
                     <dt class="col">Email:</dt>
                     <dd class="col" id="email"></dd>
+                    
 
-                    <dt class="col">Phone Number:</dt>
+                	<dt class="col">Phone Number:</dt>
                     <dd class="col" id="phone_no"></dd>
 
-                    <dt class="col">Country:</dt>
-                    <dd class="col" id="country"></dd>
                 </dl>
             </div>
         </div>

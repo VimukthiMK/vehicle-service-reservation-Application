@@ -36,7 +36,6 @@ public class VehicleServiceServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 	
@@ -48,9 +47,7 @@ public class VehicleServiceServlet extends HttpServlet {
 
 		
 		try {
-			if ("/new".equals(action)) {
-				 showNewForm(request, response);
-			} else if ("/insert".equals(action)) {
+			if ("/insert".equals(action)) {
 				 insertVehicleService(request, response);
 			} else if ("/delete".equals(action)) {
 				 deleteVehicleService(request, response);
@@ -63,15 +60,6 @@ public class VehicleServiceServlet extends HttpServlet {
 		}
 	}
 		
-
-	
-
-	private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		RequestDispatcher dispatcher = request.getRequestDispatcher("vehicle-service-form.jsp");
-		dispatcher.forward(request, response);
-		
-	}
 
 	//insert vehicle service
 	private void insertVehicleService(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException 
