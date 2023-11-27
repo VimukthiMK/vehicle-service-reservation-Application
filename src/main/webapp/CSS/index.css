@@ -62,8 +62,8 @@ p{
 
 .btn-login:hover{
 
-    background: #016ABC;
-    color: #fff;
+    background: rgb(128, 255, 255);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 13px;
     text-shadow: none;
