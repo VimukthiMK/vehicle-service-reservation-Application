@@ -25,7 +25,7 @@
 			</div>
 			<div class="nav-el" id="nav-el">
 				<button id="btn-logout" class="btn-logout" >
-				<span class="btn-text">Logout</span>
+				<span class="btn-text" onClick="index.jsp">Logout</span>
 				</button>
 			</div>
 			
