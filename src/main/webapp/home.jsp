@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="ISO-8859-1">
-	<title> Login</title>
+	<title> Vehicle Service Reservation</title>
 	<link href="CSS/home.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -69,12 +69,12 @@
     <thead>
         <tr>
             <th>Booking ID</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Vehicle no.</th>
-            <th>Mileage</th>
-            <th>Location</th>
-            <th>Message</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Location</th>
+			<th>Vehicle no.</th>
+			<th>Mileage</th>
+			<th>Message</th>
             <th>Action</th>
         </tr>
     </thead>
