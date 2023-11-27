@@ -85,7 +85,31 @@ String userEmail = (String) session.getAttribute("userEmail");
             <fieldset class="form-group">
                 <label>Preferred Location</label>
                 <select class="form-control" name="location" required="required">
-                    <!-- Options for locations here -->
+                    <option value="Ampara">Ampara</option>
+				        <option value="Anuradhapura">Anuradhapura</option>
+				        <option value="Badulla">Badulla</option>
+				        <option value="Batticaloa">Batticaloa</option>
+				        <option value="Colombo">Colombo</option>
+				        <option value="Galle">Galle</option>
+				        <option value="Gampaha">Gampaha</option>
+				        <option value="Hambanthota">Hambanthota</option>
+				        <option value="Jaffna">Jaffna</option>
+				        <option value="Kaluthara">Kaluthara</option>
+				        <option value="Kandy">Kandy</option>
+				        <option value="District 12">Kegalle</option>
+				        <option value="Kegalle">kilinochchi</option>
+				        <option value="Kurunegala">Kurunegala</option>
+				        <option value="Mannar">Mannar</option>
+				        <option value="Mathale">Mathale</option>
+				        <option value="Matara">Matara</option>
+				        <option value="Monaragala">Monaragala</option>
+				        <option value="Mullaitivu">Mullaitivu</option>
+				        <option value="Nuwara Eliya">Nuwara Eliya</option>
+				        <option value="Pollonnaruwa">Pollonnaruwa</option>
+				        <option value="Puttalam">Puttalam</option>
+				        <option value="Ratnapura">Ratnapura</option>
+				        <option value="Trincomalee">Trincomalee</option>
+				        <option value="Vavuniya">Vavuniya</option>
                 </select>
             </fieldset>
 
